@@ -1,0 +1,145 @@
+---
+layout: base.njk
+permalink: "/index.html"
+---
+
+<!-- Hero Section -->
+<section class="hero" id="hero">
+  <div class="hero-bg" style="background-image: url('{{ manifesto.image | default('/assets/banner.webp') }}');"></div>
+  <div class="hero-content">
+    <h1 class="hero-title reveal">{{ settings.hero_title | default("Where Human Thinking Meets Machine Precision.") }}</h1>
+    <p class="hero-sub reveal reveal-delay-1">{{ settings.hero_subtitle | default("AI Business Studio London") }}</p>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- Manifesto Section (Inspiration from reference site "The Craft" layout) -->
+<section class="section manifesto-section" id="manifesto">
+  <div class="container">
+    <div class="manifesto-layout">
+      <div class="manifesto-left reveal">
+        <span class="label">{{ settings.manifesto_label | default("Manifesto") }}</span>
+      </div>
+      <div class="manifesto-right reveal reveal-delay-1">
+        <p class="manifesto-line">{{ manifesto.line1 }}</p>
+        <p class="manifesto-line">{{ manifesto.line2 }}</p>
+        <p class="manifesto-line">{{ manifesto.line3 }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Intellectual Trust Section (Inspiration from press/recognition grid) -->
+<section class="section trust-section" id="trust" style="background-color: var(--c-surface); border-top: 1px solid var(--c-border); border-bottom: 1px solid var(--c-border);">
+  <div class="container">
+    <div class="section-header center reveal">
+      <span class="label">{{ settings.trust_label | default("Intellectual Trust") }}</span>
+      <h2>{{ settings.trust_title | default("Governance & Blueprint") }}</h2>
+    </div>
+    
+    <div class="trust-grid">
+      {% for card in trust.cards %}
+      <div class="trust-card reveal {% if loop.index == 2 %}reveal-delay-1{% endif %}">
+        <h3 class="trust-card-title">{{ card.title }}</h3>
+        <p class="trust-card-text">{{ card.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Service Approach Section (Inspiration from featured work layout) -->
+<section class="section approach-section" id="approach">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="label">{{ settings.approach_label | default("Approach") }}</span>
+      <h2>{{ settings.approach_title | default("Core Specialties") }}</h2>
+    </div>
+
+    <div class="services-list">
+      {% for service in services.services %}
+      <div class="service-item reveal {% if loop.index == 2 %}reveal-delay-1{% elif loop.index == 3 %}reveal-delay-2{% endif %}">
+        <div class="service-number">0{{ loop.index }}</div>
+        <div class="service-details">
+          <h3 class="service-title">{{ service.title }}</h3>
+          <p class="service-desc">{{ service.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Contact / Invitation Only Section -->
+<section class="section contact-section" id="contact" style="background-color: var(--c-surface); border-top: 1px solid var(--c-border);">
+  <div class="container">
+    <div class="contact-content reveal">
+      <span class="label">{{ settings.contact_label | default("Contact") }}</span>
+      <h2 class="contact-invitation" style="margin-bottom: 2rem;">{{ settings.contact_title | default("By Invitation Only.") }}</h2>
+      
+      <!-- Invitation Request Form -->
+      <form id="invitation-form" class="invitation-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="{{ settings.web3forms_key }}">
+        <input type="hidden" name="subject" value="New Invitation Request — AI Business Studio">
+        <input type="hidden" name="from_name" value="AI Business Studio London">
+        <input type="checkbox" name="botcheck" class="hidden-field" style="display: none;">
+
+        <div class="form-group-row">
+          <div class="form-group">
+            <label class="form-label" for="invite-name">Full Name</label>
+            <input class="form-input" type="text" id="invite-name" name="name" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="invite-email">Business Email</label>
+            <input class="form-input" type="email" id="invite-email" name="email" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="invite-org">Organization</label>
+          <input class="form-input" type="text" id="invite-org" name="company" placeholder="e.g. Acme Corp">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="invite-details">Brief Project Context</label>
+          <textarea class="form-textarea" id="invite-details" name="message" rows="4" required placeholder="Describe your business challenge or context..."></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-dark" id="invite-submit">
+            <span class="submit-text">{{ settings.contact_button | default("Request Invitation") }}</span>
+            <span class="btn-loader">
+              <svg class="spinner" viewBox="0 0 50 50">
+                <circle class="path" cx="25" cy="25" r="20" fill="none" stroke="currentColor" stroke-width="5"></circle>
+              </svg>
+            </span>
+          </button>
+        </div>
+      </form>
+
+      <!-- Alert states -->
+      <div class="form-result success-result" style="display: none;">
+        <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        <h3>{{ settings.success_title | default("Request Received") }}</h3>
+        <p>{{ settings.success_text | default("Your request has been securely submitted. Our partnership team evaluates inquiries weekly and will reach out if there is a strategic alignment.") }}</p>
+      </div>
+
+      <div class="form-result error-result" style="display: none;">
+        <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        <h3>{{ settings.error_title | default("Submission Failed") }}</h3>
+        <p class="error-msg">{{ settings.error_text | default("An error occurred while sending your request. Please check your network connection and try again.") }}</p>
+      </div>
+
+    </div>
+  </div>
+</section>

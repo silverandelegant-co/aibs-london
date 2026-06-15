@@ -1,0 +1,231 @@
+<!-- SINGLE FILE OBJECTS (DIRECT FIELD EDITING SCREEN) -->
+<template x-if="getActiveCatalogType() === 'single_object'">
+  <div class="space-y-6 bg-slate-900/20 border border-slate-800 p-6 rounded-2xl relative">
+    <div class="flex items-center justify-between border-b border-slate-800/80 pb-4">
+      <div>
+        <h3 class="font-serif text-2xl font-semibold text-slate-100" x-text="activeCatalogLabel"></h3>
+        <p class="text-xs text-slate-500 mt-1">Bu bölüme ait metin ve ayarları doğrudan düzenleyin.</p>
+      </div>
+      <button @click="saveSingleObject()" 
+        class="px-5 py-2.5 bg-gold-500 hover:bg-gold-400 active:scale-95 border border-transparent rounded-xl text-slate-950 text-xs font-semibold tracking-wide transition-all flex items-center space-x-2">
+        <i class="fa-solid fa-floppy-disk"></i>
+        <span>Bölümü Kaydet</span>
+      </button>
+    </div>
+
+    <div class="space-y-6 pt-4">
+      <!-- 1. GENEL AYARLAR & HERO -->
+      <div x-show="activeCatalog === 'settings'" class="space-y-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Site Başlığı (SEO Title)</label>
+            <input type="text" x-model="singleObjectData.title" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none focus:ring-1 focus:ring-gold-500 focus:border-gold-500" />
+          </div>
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Web3Forms Access Key</label>
+            <input type="text" x-model="singleObjectData.web3forms_key" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-[11px] font-mono text-slate-200 focus:outline-none focus:ring-1 focus:ring-gold-500 focus:border-gold-500" />
+          </div>
+        </div>
+
+        <div class="space-y-1.5">
+          <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Site Açıklaması (Meta Description)</label>
+          <textarea x-model="singleObjectData.description" rows="3" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none focus:ring-1 focus:ring-gold-500 focus:border-gold-500"></textarea>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border-t border-slate-800/80 pt-5">
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Instagram Bağlantısı (İsteğe Bağlı)</label>
+            <input type="text" x-model="singleObjectData.instagram" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+          </div>
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">LinkedIn Bağlantısı (İsteğe Bağlı)</label>
+            <input type="text" x-model="singleObjectData.linkedin" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+          </div>
+        </div>
+
+        <div class="border-t border-slate-800/80 pt-5 space-y-4">
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-300 font-sans">Giriş (Hero) Sloganları</h4>
+          <div class="space-y-4">
+            <div class="space-y-1.5">
+              <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Ana Slogan (Büyük Başlık)</label>
+              <input type="text" x-model="singleObjectData.hero_title" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+            </div>
+            <div class="space-y-1.5">
+              <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Alt Slogan (Alt Başlık)</label>
+              <input type="text" x-model="singleObjectData.hero_subtitle" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-slate-800/80 pt-5 space-y-4">
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-300 font-sans">Bölüm Başlıkları & Etiketleri (Page Headings & Labels)</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-1.5">
+              <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Manifesto Bölüm Etiketi</label>
+              <input type="text" x-model="singleObjectData.manifesto_label" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none focus:ring-1 focus:ring-gold-500 focus:border-gold-500" />
+            </div>
+            <div class="space-y-1.5">
+              <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Güven Bölüm Etiketi</label>
+              <input type="text" x-model="singleObjectData.trust_label" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none focus:ring-1 focus:ring-gold-500 focus:border-gold-500" />
+            </div>
+            <div class="space-y-1.5">
+              <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Güven Bölüm Başlığı</label>
+              <input type="text" x-model="singleObjectData.trust_title" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none focus:ring-1 focus:ring-gold-500 focus:border-gold-500" />
+            </div>
+            <div class="space-y-1.5">
+              <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Hizmet Bölüm Etiketi (Approach)</label>
+              <input type="text" x-model="singleObjectData.approach_label" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none focus:ring-1 focus:ring-gold-500 focus:border-gold-500" />
+            </div>
+            <div class="space-y-1.5">
+              <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Hizmet Bölüm Başlığı (Approach Title)</label>
+              <input type="text" x-model="singleObjectData.approach_title" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none focus:ring-1 focus:ring-gold-500 focus:border-gold-500" />
+            </div>
+            <div class="space-y-1.5">
+              <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">İletişim Bölüm Etiketi</label>
+              <input type="text" x-model="singleObjectData.contact_label" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none focus:ring-1 focus:ring-gold-500 focus:border-gold-500" />
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-slate-800/80 pt-5 space-y-4">
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-300 font-sans">Davetiye Formu & Geri Bildirim Metinleri</h4>
+          <div class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="space-y-1.5">
+                <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">İletişim/Davet Formu Başlığı</label>
+                <input type="text" x-model="singleObjectData.contact_title" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none focus:ring-1 focus:ring-gold-500" />
+              </div>
+              <div class="space-y-1.5">
+                <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Gönderim Butonu Metni</label>
+                <input type="text" x-model="singleObjectData.contact_button" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none focus:ring-1 focus:ring-gold-500" />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="space-y-1.5">
+                <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Başarılı Gönderim Başlığı</label>
+                <input type="text" x-model="singleObjectData.success_title" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+              </div>
+              <div class="space-y-1.5">
+                <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Hatalı Gönderim Başlığı</label>
+                <input type="text" x-model="singleObjectData.error_title" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+              </div>
+            </div>
+
+            <div class="space-y-1.5">
+              <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Başarılı Gönderim Açıklama Metni</label>
+              <textarea x-model="singleObjectData.success_text" rows="2" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none"></textarea>
+            </div>
+
+            <div class="space-y-1.5">
+              <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Hatalı Gönderim Açıklama Metni</label>
+              <textarea x-model="singleObjectData.error_text" rows="2" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. MANİFESTO BLOKU -->
+      <div x-show="activeCatalog === 'manifesto'" class="space-y-5">
+        <div class="space-y-4">
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Cümle 1</label>
+            <input type="text" x-model="singleObjectData.line1" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+          </div>
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Cümle 2</label>
+            <input type="text" x-model="singleObjectData.line2" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+          </div>
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Cümle 3</label>
+            <input type="text" x-model="singleObjectData.line3" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+          </div>
+        </div>
+
+        <div class="space-y-2 border-t border-slate-800/80 pt-5">
+          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 font-sans">Giriş / Arka Plan Görseli</label>
+          <div class="flex items-center space-x-3">
+            <input type="text" x-model="singleObjectData.image" class="block flex-grow bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs font-mono text-slate-300 focus:outline-none" readonly />
+            <button @click="openMediaLibraryModal(singleObjectData, 'image')"
+              class="px-4 py-3 bg-slate-900 border border-slate-800 hover:border-gold-500/20 text-gold-400 text-xs font-semibold rounded-xl flex-shrink-0">
+              Görsel Seç
+            </button>
+          </div>
+          <div class="mt-2 w-32 h-20 bg-slate-950 rounded-lg overflow-hidden border border-slate-800">
+            <img :src="resolveImagePath(singleObjectData.image)" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/200x100/1e293b/a88653?text=Yok'" />
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. ENTELEKTÜEL GÜVEN -->
+      <div x-show="activeCatalog === 'trust'" class="space-y-5">
+        <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-300 font-sans">Güven Kartları (Felsefe & Metodoloji)</h4>
+        
+        <div class="space-y-6">
+          <template x-for="(card, index) in singleObjectData.cards" :key="index">
+            <div class="bg-slate-950/40 border border-slate-800 p-5 rounded-2xl space-y-4 relative">
+              <div class="flex items-center justify-between border-b border-slate-800/60 pb-2">
+                <span class="text-xs font-semibold text-gold-400" x-text="'Kart #' + (index + 1)"></span>
+                <button type="button" @click="singleObjectData.cards.splice(index, 1)" class="text-slate-500 hover:text-red-400 text-xs flex items-center space-x-1 transition-all">
+                  <i class="fa-solid fa-trash"></i>
+                  <span>Sil</span>
+                </button>
+              </div>
+              <div class="space-y-1.5">
+                <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Kart Başlığı</label>
+                <input type="text" x-model="card.title" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+              </div>
+              <div class="space-y-1.5">
+                <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Kart İçerik Metni</label>
+                <textarea x-model="card.text" rows="4" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none"></textarea>
+              </div>
+            </div>
+          </template>
+        </div>
+
+        <div class="pt-2">
+          <button type="button" @click="if (!singleObjectData.cards) singleObjectData.cards = []; singleObjectData.cards.push({ title: '', text: '' })" 
+            class="px-4 py-2.5 bg-slate-950 hover:bg-slate-900 border border-slate-800 text-gold-400 text-xs font-semibold rounded-xl flex items-center space-x-1.5 transition-all">
+            <i class="fa-solid fa-plus text-[9px]"></i>
+            <span>Yeni Kart Ekle</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 4. HİZMET YAKLAŞIMI -->
+      <div x-show="activeCatalog === 'services'" class="space-y-5">
+        <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-300 font-sans">Hizmet Odakları (Hizmet Yaklaşımı Satırları)</h4>
+        
+        <div class="space-y-6">
+          <template x-for="(service, index) in singleObjectData.services" :key="index">
+            <div class="bg-slate-950/40 border border-slate-800 p-5 rounded-2xl space-y-4 relative">
+              <div class="flex items-center justify-between border-b border-slate-800/60 pb-2">
+                <span class="text-xs font-semibold text-gold-400" x-text="'Hizmet #' + (index + 1)"></span>
+                <button type="button" @click="singleObjectData.services.splice(index, 1)" class="text-slate-500 hover:text-red-400 text-xs flex items-center space-x-1 transition-all">
+                  <i class="fa-solid fa-trash"></i>
+                  <span>Sil</span>
+                </button>
+              </div>
+              <div class="space-y-1.5">
+                <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Hizmet Başlığı</label>
+                <input type="text" x-model="service.title" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+              </div>
+              <div class="space-y-1.5">
+                <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Açıklama</label>
+                <textarea x-model="service.description" rows="3" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none"></textarea>
+              </div>
+            </div>
+          </template>
+        </div>
+
+        <div class="pt-2">
+          <button type="button" @click="if (!singleObjectData.services) singleObjectData.services = []; singleObjectData.services.push({ title: '', description: '' })" 
+            class="px-4 py-2.5 bg-slate-950 hover:bg-slate-900 border border-slate-800 text-gold-400 text-xs font-semibold rounded-xl flex items-center space-x-1.5 transition-all">
+            <i class="fa-solid fa-plus text-[9px]"></i>
+            <span>Yeni Hizmet Ekle</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

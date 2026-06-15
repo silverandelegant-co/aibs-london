@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?v=1.0">
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <title>{{ settings.title | default("AI Business Studio London") }}</title>
+  <meta name="description" content="{{ settings.description | default('Where Human Thinking Meets Machine Precision.') }}">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">AI Business Studio</a>
+      <div class="nav-overlay" id="nav-overlay"></div>
+      <ul class="nav-links" id="nav-links">
+        <li class="nav-item"><a href="#manifesto">Manifesto</a></li>
+        <li class="nav-item"><a href="#trust">Blueprint &amp; Governance</a></li>
+        <li class="nav-item"><a href="#approach">Services</a></li>
+        <li class="nav-item"><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  {{ content | safe }}
+
+  <!-- Footer -->
+  <footer class="footer" id="footer-main">
+    <div class="footer-inner-minimal">
+      <p>&copy; 2026 AI Business Studio London. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js?v=1.0"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!-- Header (RESPONSIVE) -->
+<header class="bg-slate-900/60 border-b border-slate-800 backdrop-blur-md sticky top-0 z-40">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      
+      <!-- Brand Logo / Title -->
+      <div class="flex items-center space-x-3.5 cursor-pointer flex-shrink-0" @click="activeCatalog = 'dashboard'">
+        <div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/20 flex items-center justify-center">
+          <i class="fa-solid fa-sliders text-gold-400 text-lg"></i>
+        </div>
+        <div>
+          <h2 class="font-serif text-base sm:text-lg text-gold-300 font-semibold tracking-wide leading-tight">AI Business Studio</h2>
+          <span class="text-[9px] text-slate-500 uppercase tracking-widest block">Panel v2.0</span>
+        </div>
+      </div>
+
+      <!-- Responsive Control Buttons -->
+      <div class="flex items-center space-x-2.5">
+        
+        <!-- Always Visible Global Publish Button (Transforms dynamically on unsaved changes) -->
+        <button @click="publishAllChanges()" 
+          class="px-3 sm:px-4 py-2.5 rounded-xl text-xs font-bold tracking-wider transition-all flex items-center space-x-1.5 active:scale-95 flex-shrink-0"
+          :class="(catalogs.some(c => c.dirty) || pendingImageUploads.length > 0 || pendingImageDeletes.length > 0) 
+            ? 'bg-gradient-to-r from-amber-500 via-gold-500 to-gold-600 hover:from-amber-400 hover:to-gold-400 text-slate-950 shadow-lg shadow-gold-500/10 hover:shadow-gold-500/20 animate-pulse cursor-pointer' 
+            : 'bg-slate-900 border border-slate-800 text-slate-600 cursor-not-allowed'"
+          :disabled="!(catalogs.some(c => c.dirty) || pendingImageUploads.length > 0 || pendingImageDeletes.length > 0)"
+          :title="(catalogs.some(c => c.dirty) || pendingImageUploads.length > 0 || pendingImageDeletes.length > 0) ? 'Tüm Değişiklikleri, Görselleri ve Silmeleri Yayınla' : 'Yayınlanacak Değişiklik Yok'">
+          <i class="fa-solid fa-cloud-arrow-up text-xs" :class="(catalogs.some(c => c.dirty) || pendingImageUploads.length > 0 || pendingImageDeletes.length > 0) ? 'text-slate-950' : 'text-slate-600'"></i>
+          
+          <!-- Hidden on Mobile, Shown on Desktop -->
+          <span class="hidden md:inline" x-text="(catalogs.some(c => c.dirty) || pendingImageUploads.length > 0 || pendingImageDeletes.length > 0) ? 'Değişiklikleri Yayınla' : 'Değişiklik Yok'"></span>
+          
+          <!-- Compact red/gold indicator dot specifically for mobile screen space -->
+          <span class="md:hidden flex items-center justify-center w-4 h-4 text-[9px] bg-slate-950 text-gold-400 rounded-full font-bold leading-none border border-gold-500/20" 
+            x-show="(catalogs.some(c => c.dirty) || pendingImageUploads.length > 0 || pendingImageDeletes.length > 0)" 
+            x-text="catalogs.filter(c => c.dirty).length + pendingImageUploads.length + pendingImageDeletes.length" x-cloak></span>
+        </button>
+
+        <!-- Top Media Library Button -->
+        <button @click="openMediaLibraryModal(null)" 
+          class="px-3 py-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-gold-500/30 text-gold-400 text-xs font-semibold tracking-wide transition-all flex items-center space-x-2"
+          title="Medya Kütüphanesi (Galeri)">
+          <i class="fa-solid fa-images text-xs"></i>
+          <span class="hidden md:inline">Medya Kütüphanesi</span>
+        </button>
+        
+        <!-- Secure Logout Button -->
+        <button @click="logout()" title="Güvenli Çıkış"
+          class="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 hover:border-red-500/30 hover:bg-red-950/20 text-slate-400 hover:text-red-400 flex items-center justify-center transition-all active:scale-95">
+          <i class="fa-solid fa-sign-out-alt"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</header>
