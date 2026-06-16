@@ -1,12 +1,16 @@
 {
   "cards": [
     {
-      "title": "Fellowship & Governance",
-      "text": "Led by Esen Tunali Sari, FRSA. Driven by the values of the Royal Society of Arts to shape contemporary, responsible and strategic technological landscapes."
+      "title": "Recognised by the Royal Society of Arts",
+      "text": "Esen Tunalı Sarı, FRSA is a Fellow of the Royal Society of Arts — an institution with over 270 years of history. Fellowship is awarded to individuals who contribute to the arts, commerce and social progress. It is not purchased. It is earned."
     },
     {
-      "title": "The Blueprint",
-      "text": "Moving beyond efficiency. Designing long-term operational resilience and cognitive amplification for executives and independent entities."
+      "title": "Proven in Practice",
+      "text": "This methodology was built and tested inside SILVER & ELEGANT — an independent jewellery house that reached London Fashion Week, Wolf & Badger and Not Just A Label within eighteen months of founding, using generative AI as a core operational tool. What we offer clients is what we built for ourselves."
+    },
+    {
+      "title": " Selective by Design",
+      "text": "We work with a small number of clients at any one time. Every engagement is bespoke. We do not offer packages or retainers. If there is no genuine fit, we will say so."
     }
   ]
 }
