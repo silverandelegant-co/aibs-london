@@ -1,9 +1,15 @@
 {
-  "label": "Recognition",
-  "heading": "As Featured In / Recognised By",
+  "label": "RECOGNITION",
+  "heading": "As Featured In",
   "logos": [
     {
-      "name": "Borehamwood Times"
+      "name": "Royal Society of Arts (RSA)"
+    },
+    {
+      "name": "KALTBLUT Magazine"
+    },
+    {
+      "name": "FLANELLE Magazine"
     }
   ]
 }
