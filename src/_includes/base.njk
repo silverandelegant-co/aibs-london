@@ -29,13 +29,14 @@
   <!-- Navigation -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo">AI Business Studio</a>
+      <a href="/index.html#hero" class="nav-logo">AI Business Studio</a>
       <div class="nav-overlay" id="nav-overlay"></div>
       <ul class="nav-links" id="nav-links">
-        <li class="nav-item"><a href="#manifesto">Manifesto</a></li>
-        <li class="nav-item"><a href="#trust">Blueprint &amp; Governance</a></li>
-        <li class="nav-item"><a href="#approach">Services</a></li>
-        <li class="nav-item"><a href="#contact">Contact</a></li>
+        <li class="nav-item"><a href="/index.html#manifesto">Manifesto</a></li>
+        <li class="nav-item"><a href="/index.html#trust">Blueprint &amp; Governance</a></li>
+        <li class="nav-item"><a href="/index.html#approach">Services</a></li>
+        <li class="nav-item"><a href="/work/index.html">Work</a></li>
+        <li class="nav-item"><a href="/index.html#contact">Contact</a></li>
       </ul>
       <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -47,8 +48,29 @@
 
   <!-- Footer -->
   <footer class="footer" id="footer-main">
-    <div class="footer-inner-minimal">
-      <p>&copy; 2026 AI Business Studio London. All rights reserved.</p>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">AI Business Studio</span>
+        <p>Where Human Thinking Meets Machine Precision.</p>
+      </div>
+      <div class="footer-links">
+        {% if settings.linkedin %}
+        <a href="{{ settings.linkedin }}" class="footer-link" target="_blank" rel="noopener" id="footer-linkedin" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 14px; height: 14px;">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+          LinkedIn
+        </a>
+        {% endif %}
+        <a href="https://silverandelegant.co" class="footer-link" target="_blank" rel="noopener" id="footer-sister-brand">Sister brand: SILVER &amp; ELEGANT</a>
+        <a href="/privacy/index.html" class="footer-link" id="footer-privacy">Privacy Policy</a>
+        <a href="/terms/index.html" class="footer-link" id="footer-terms">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 AI Business Studio London. All rights reserved.
     </div>
   </footer>
 

@@ -14,7 +14,14 @@
         { name: 'settings', label: 'Genel Ayarlar & Hero', path: 'src/_data/settings.json', type: 'single_object', data: {}, sha: '', dirty: false },
         { name: 'manifesto', label: 'Manifesto Bloku', path: 'src/_data/manifesto.json', type: 'single_object', data: {}, sha: '', dirty: false },
         { name: 'trust', label: 'Entelektüel Güven', path: 'src/_data/trust.json', type: 'single_object', data: {}, sha: '', dirty: false },
-        { name: 'services', label: 'Hizmet Yaklaşımı', path: 'src/_data/services.json', type: 'single_object', data: {}, sha: '', dirty: false }
+        { name: 'services', label: 'Hizmet Yaklaşımı', path: 'src/_data/services.json', type: 'single_object', data: {}, sha: '', dirty: false },
+        { name: 'who_for', label: 'Hedef Kitle (Who For)', path: 'src/_data/who_for.json', type: 'single_object', data: {}, sha: '', dirty: false },
+        { name: 'process', label: 'Nasıl Çalışırız (Process)', path: 'src/_data/process.json', type: 'single_object', data: {}, sha: '', dirty: false },
+        { name: 'social_proof', label: 'Sosyal Kanıt (Social Proof)', path: 'src/_data/social_proof.json', type: 'single_object', data: {}, sha: '', dirty: false },
+        { name: 'faq', label: 'Sıkça Sorulan Sorular', path: 'src/_data/faq.json', type: 'single_object', data: {}, sha: '', dirty: false },
+        { name: 'work', label: 'Vaka Çalışması (Work)', path: 'src/_data/work.json', type: 'single_object', data: {}, sha: '', dirty: false },
+        { name: 'privacy', label: 'Gizlilik Politikası (Privacy)', path: 'src/_data/privacy.json', type: 'single_object', data: {}, sha: '', dirty: false },
+        { name: 'terms', label: 'Kullanım Koşulları (Terms)', path: 'src/_data/terms.json', type: 'single_object', data: {}, sha: '', dirty: false }
       ],
 
       // Getters for Grouping Dashboard & Sidebar
@@ -246,6 +253,107 @@
                         description: "Preserving human oversight while scaling precision."
                       }
                     ]
+                  };
+                } else if (cat.name === 'who_for') {
+                  cat.data = {
+                    label: "Audience",
+                    heading: "Who This Is For",
+                    paragraph_1: "We work best with independent brands, founders and small teams who need professional-grade visual systems and AI strategy — without the budget for traditional agencies or in-house teams.",
+                    paragraph_2: "If you already have a clear vision for your brand and need the right framework to execute it faster, this is for you. We help you transition from tools exploration to actual operational leverage."
+                  };
+                } else if (cat.name === 'process') {
+                  cat.data = {
+                    label: "Methodology",
+                    heading: "How We Work",
+                    steps: [
+                      {
+                        num: "01",
+                        title: "Initial Conversation",
+                        description: "Following your request invitation submission, we discuss your goals and brand vision."
+                      },
+                      {
+                        num: "02",
+                        title: "Discovery & Framework",
+                        description: "We outline a bespoke strategic roadmap and design guidelines for your visual pipeline."
+                      },
+                      {
+                        num: "03",
+                        title: "Implementation",
+                        description: "We build your custom AI visual systems and set up operational workflows."
+                      },
+                      {
+                        num: "04",
+                        title: "Handover & Support",
+                        description: "We hand control over, ensuring your team has the skills and systems to run autonomously."
+                      }
+                    ]
+                  };
+                } else if (cat.name === 'social_proof') {
+                  cat.data = {
+                    label: "Recognition",
+                    heading: "As Featured In / Recognised By",
+                    logos: [
+                      { name: "City A.M." },
+                      { name: "The Jewellery Editor" },
+                      { name: "Borehamwood Times" }
+                    ]
+                  };
+                } else if (cat.name === 'faq') {
+                  cat.data = {
+                    label: "Clarifications",
+                    heading: "Frequently Asked Questions",
+                    items: [
+                      {
+                        question: "What does \"by invitation only\" actually mean? Can I still apply?",
+                        answer: "Yes. Anyone can submit a request — \"by invitation\" simply means not every enquiry leads to an engagement. We limit our active partnerships to ensure dedicated personal strategy."
+                      },
+                      {
+                        question: "How much does this cost?",
+                        answer: "Every engagement is bespoke and priced individually based on scope. We discuss this fully after an initial conversation once we understand your objectives."
+                      },
+                      {
+                        question: "How long does a typical engagement take?",
+                        answer: "A typical engagement takes between 4 to 8 weeks, depending on the scope of the brand's catalog and strategic requirements."
+                      }
+                    ]
+                  };
+                } else if (cat.name === 'work') {
+                  cat.data = {
+                    page_title: "From Zero to London Fashion Week — AIBS London Case Study",
+                    meta_description: "How a proprietary visual system supported Silver & Elegant's journey from a home studio to a runway partnership at London Fashion Week in thirteen months.",
+                    hero_label: "Case Study",
+                    hero_heading: "From Zero to London Fashion Week",
+                    hero_description: "How a proprietary visual system supported Silver & Elegant's journey from a home studio to a runway partnership at London Fashion Week in thirteen months.",
+                    narrative_paragraph_1: "SILVER & ELEGANT was founded in London by software engineer Esen Tunalı Sarı as a fusion of mathematical precision and high-fashion aesthetics. Drawing from a childhood spent amongst master silversmiths in Istanbul's historic Kapalıçarşı, the brand creates \"Future Heirlooms\"—sculptural wearable art computed algorithmically and hand-forged in fire.",
+                    narrative_paragraph_2: "Within thirteen months, the brand scaled from a private home studio in Borehamwood to an official runway partnership at London Fashion Week, showcasing how digital visual systems can challenge traditional production models. By deploying a proprietary visual pipeline, we bypassed the constraints and overhead of traditional editorial photography, allowing the brand to establish an immediate high-fashion presence.",
+                    outcome_quote: "This visual system supported Silver & Elegant's journey from a home studio to a jewellery partnership at London Fashion Week.",
+                    footer_note: "All imagery on this page was produced using the same methodology offered to AI Business Studio London clients.",
+                    cta_text: "Request Consultation",
+                    cta_link: "/index.html#contact",
+                    image1: "/assets/work/work1.jpg",
+                    image1_caption: "Editorial campaign imagery, generated using the Physical Fidelity Protocol.",
+                    image2: "/assets/work/work2.jpg",
+                    image2_caption: "Sculptural detail showcase, mapping 99% geometric fidelity between physical and digital.",
+                    image3: "/assets/work/work4.jpg",
+                    image3_caption: "Campaign visual presenting the brutalist architecture of the Pegasus collection.",
+                    image4: "/assets/work/work3.jpg",
+                    image4_caption: "Candid runway capture from the Paul Costelloe Autumn/Winter 2026 opening show at London Fashion Week.",
+                    image5: "/assets/work/work5.jpg",
+                    image5_caption: "Model showcase of structural jewellery on the LFW runway, London."
+                  };
+                } else if (cat.name === 'privacy') {
+                  cat.data = {
+                    page_title: "Privacy Policy — AI Business Studio London",
+                    heading: "Privacy Policy",
+                    last_updated: "Last updated: June 2026",
+                    body: "AI Business Studio London is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard the information you provide when using our website or requesting an invitation.\n\n### 1. Information We Collect\n\nWhen you submit a request for an invitation through our form, we collect your name, business email address, organization name, and details regarding your business context. We collect this information solely to evaluate potential partnerships.\n\n### 2. How We Use Your Information\n\nWe use the collected data to personally review and respond to your enquiry. We do not sell, distribute, or lease your personal information to third parties unless we have your explicit permission or are required by law to do so.\n\n### 3. Data Security and Hosting\n\nYour form submissions are transmitted securely and processed in compliance with applicable data protection laws. We maintain appropriate physical, technological, and administrative procedures to safeguard and secure the information we collect online.\n\n### 4. Contact Us\n\nIf you have any questions regarding this privacy policy or our data practices, please contact us directly at info@aibusinessstudio.london."
+                  };
+                } else if (cat.name === 'terms') {
+                  cat.data = {
+                    page_title: "Terms of Service — AI Business Studio London",
+                    heading: "Terms of Service",
+                    last_updated: "Last updated: June 2026",
+                    body: "Welcome to AI Business Studio London. By accessing this website, you agree to comply with and be bound by the following terms and conditions of use.\n\n### 1. Use of Site Content\n\nAll text, photography, layout, and visual assets on this site are protected by intellectual property laws. You may browse the site and submit enquiries, but reproduction of any content without prior written permission is strictly prohibited.\n\n### 2. Disclaimer of Business Advice\n\nThe information on this website is for general informational and branding purposes only. It does not constitute binding professional consultancy or strategy advice. Engagements only start after a mutual agreement is signed.\n\n### 3. Invitation Request Policy\n\nSubmitting a request for invitation via our contact form does not create a business relationship or guarantee that AI Business Studio London will engage in a strategic partnership with your organization. We evaluate enquiries selectively.\n\n### 4. Governing Law\n\nThese terms and conditions are governed by and construed in accordance with the laws of England and Wales. Any disputes relating to these terms shall be subject to the exclusive jurisdiction of the courts of England and Wales."
                   };
                 } else {
                   cat.data = {};

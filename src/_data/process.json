@@ -1,0 +1,26 @@
+{
+  "label": "Methodology",
+  "heading": "How We Work",
+  "steps": [
+    {
+      "num": "01",
+      "title": "Initial Conversation",
+      "description": "Following your request invitation submission, we discuss your goals and brand vision."
+    },
+    {
+      "num": "02",
+      "title": "Discovery & Framework",
+      "description": "We outline a bespoke strategic roadmap and design guidelines for your visual pipeline."
+    },
+    {
+      "num": "03",
+      "title": "Implementation",
+      "description": "We build your custom AI visual systems and set up operational workflows."
+    },
+    {
+      "num": "04",
+      "title": "Handover & Support",
+      "description": "We hand over control, ensuring your team has the skills and systems to run autonomously."
+    }
+  ]
+}

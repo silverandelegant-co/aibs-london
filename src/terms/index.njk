@@ -1,0 +1,20 @@
+---
+layout: base.njk
+title: "{{ terms.page_title | default('Terms of Service — AI Business Studio London') }}"
+permalink: "/terms/index.html"
+---
+
+<section class="section" style="padding: 10rem 0 6rem;">
+  <div class="container" style="max-width: 800px; margin: 0 auto;">
+    <span class="label reveal">Legal</span>
+    <h1 class="reveal reveal-delay-1" style="font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; margin-bottom: 3rem;">{{ terms.heading | default('Terms of Service') }}</h1>
+    
+    <div class="reveal reveal-delay-2" style="font-family: var(--font-sans); font-size: 0.95rem; color: var(--c-muted); line-height: 1.8; display: flex; flex-direction: column; gap: 1.5rem;">
+      <p style="color: var(--c-ink); font-weight: 500;">{{ terms.last_updated | default('Last updated: June 2026') }}</p>
+      
+      <div class="legal-content">
+        {{ terms.body | markdown | safe }}
+      </div>
+    </div>
+  </div>
+</section>

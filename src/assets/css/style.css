@@ -646,16 +646,188 @@ h3 {
 .footer {
   background: var(--c-bg);
   border-top: 1px solid var(--c-border);
-  padding: var(--space-md) 0;
-  text-align: center;
+  padding: var(--space-lg) 0 var(--space-md);
 }
 
-.footer-inner-minimal {
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: left;
+}
+
+.footer-logo {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--c-ink);
+}
+
+.footer-brand p {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--c-muted);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.8rem;
+}
+
+.footer-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-family: var(--font-sans);
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--c-muted);
+  transition: color 200ms;
+}
+
+.footer-link:hover {
+  color: var(--c-ink);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  margin-top: 3rem;
+  border-top: 1px solid var(--c-border);
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--c-muted);
+  text-transform: uppercase;
+}
+
+/* Tooltip styles */
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+  margin-left: 2px;
+}
+
+.tooltip-trigger {
+  color: var(--c-muted);
+  font-weight: bold;
+  border-bottom: 1px dotted var(--c-muted);
+  padding: 0 2px;
+  transition: color 0.2s ease;
+}
+
+.tooltip-container:hover .tooltip-trigger {
+  color: var(--c-ink);
+}
+
+.tooltip-content {
+  visibility: hidden;
+  width: 280px;
+  background-color: var(--c-ink);
+  color: var(--c-surface);
+  text-align: center;
+  border-radius: 4px;
+  padding: 0.8rem;
+  position: absolute;
+  z-index: 100;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  pointer-events: none;
+  text-transform: none;
+  font-style: normal;
+}
+
+.tooltip-content::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--c-ink) transparent transparent transparent;
+}
+
+.tooltip-container:hover .tooltip-content {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* FAQ accordion styles */
+.faq-accordion {
+  width: 100%;
+  max-width: 800px;
+  margin: 3rem auto 0;
+}
+
+.faq-item {
+  border: 1px solid var(--c-border);
+  background: var(--c-surface);
+  padding: 1.5rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: var(--c-silver);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--c-ink);
+  cursor: pointer;
+  user-select: none;
+}
+
+.faq-icon {
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  color: var(--c-muted);
+  transition: transform 0.3s ease;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, margin-top 0.3s ease;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--c-muted);
+  line-height: 1.6;
+}
+
+.faq-answer p {
+  padding-top: 1rem;
 }
 
 /* Mobile responsive menu overlays and updates */
@@ -739,5 +911,10 @@ h3 {
   .service-item {
     grid-template-columns: 1fr;
     gap: 0.5rem;
+  }
+
+  .process-timeline {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-md) !important;
   }
 }

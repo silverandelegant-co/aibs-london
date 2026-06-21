@@ -226,6 +226,663 @@
           </button>
         </div>
       </div>
+
+      <!-- 5. HEDEF KİTLE (WHO FOR) -->
+      <div x-show="activeCatalog === 'who_for'" class="space-y-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Küçük Etiket (Label)</label>
+            <input type="text" x-model="singleObjectData.label" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+          </div>
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Ana Başlık (Heading)</label>
+            <input type="text" x-model="singleObjectData.heading" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+          </div>
+        </div>
+        <div class="space-y-1.5">
+          <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Açıklama Paragrafı 1</label>
+          <textarea x-model="singleObjectData.paragraph_1" rows="4" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none"></textarea>
+        </div>
+        <div class="space-y-1.5">
+          <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Açıklama Paragrafı 2</label>
+          <textarea x-model="singleObjectData.paragraph_2" rows="4" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none"></textarea>
+        </div>
+      </div>
+
+      <!-- 6. NASIL ÇALIŞIRIZ (PROCESS) -->
+      <div x-show="activeCatalog === 'process'" class="space-y-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Küçük Etiket (Label)</label>
+            <input type="text" x-model="singleObjectData.label" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+          </div>
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Ana Başlık (Heading)</label>
+            <input type="text" x-model="singleObjectData.heading" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+          </div>
+        </div>
+
+        <div class="border-t border-slate-800/80 pt-5 space-y-4">
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-300 font-sans">Süreç Adımları (Steps)</h4>
+          <div class="space-y-6">
+            <template x-for="(step, index) in singleObjectData.steps" :key="index">
+              <div class="bg-slate-950/40 border border-slate-800 p-5 rounded-2xl space-y-4 relative">
+                <div class="flex items-center justify-between border-b border-slate-800/60 pb-2">
+                  <span class="text-xs font-semibold text-gold-400" x-text="'Adım #' + (index + 1)"></span>
+                  <button type="button" @click="singleObjectData.steps.splice(index, 1)" class="text-slate-500 hover:text-red-400 text-xs flex items-center space-x-1 transition-all">
+                    <i class="fa-solid fa-trash"></i>
+                    <span>Sil</span>
+                  </button>
+                </div>
+                <div class="grid grid-cols-3 gap-4">
+                  <div class="space-y-1.5">
+                    <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Numara (Örn: 01)</label>
+                    <input type="text" x-model="step.num" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+                  </div>
+                  <div class="space-y-1.5 col-span-2">
+                    <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Adım Başlığı</label>
+                    <input type="text" x-model="step.title" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+                  </div>
+                </div>
+                <div class="space-y-1.5">
+                  <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Açıklama</label>
+                  <textarea x-model="step.description" rows="3" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none"></textarea>
+                </div>
+              </div>
+            </template>
+          </div>
+          <div class="pt-2">
+            <button type="button" @click="if (!singleObjectData.steps) singleObjectData.steps = []; singleObjectData.steps.push({ num: '', title: '', description: '' })" 
+              class="px-4 py-2.5 bg-slate-950 hover:bg-slate-900 border border-slate-800 text-gold-400 text-xs font-semibold rounded-xl flex items-center space-x-1.5 transition-all">
+              <i class="fa-solid fa-plus text-[9px]"></i>
+              <span>Yeni Adım Ekle</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. SOSYAL KANIT (SOCIAL PROOF) -->
+      <div x-show="activeCatalog === 'social_proof'" class="space-y-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Küçük Etiket (Label)</label>
+            <input type="text" x-model="singleObjectData.label" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+          </div>
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Ana Başlık (Heading)</label>
+            <input type="text" x-model="singleObjectData.heading" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+          </div>
+        </div>
+
+        <div class="border-t border-slate-800/80 pt-5 space-y-4">
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-300 font-sans">Kurum / Basın Logoları (Logos)</h4>
+          <div class="space-y-4">
+            <template x-for="(logo, index) in singleObjectData.logos" :key="index">
+              <div class="bg-slate-950/40 border border-slate-800 p-4 rounded-2xl flex items-center justify-between gap-4">
+                <div class="flex-grow space-y-1.5">
+                  <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Kurum / Yayın Adı</label>
+                  <input type="text" x-model="logo.name" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-2 px-3 text-xs text-slate-200 focus:outline-none" />
+                </div>
+                <button type="button" @click="singleObjectData.logos.splice(index, 1)" class="text-slate-500 hover:text-red-400 text-xs transition-all flex items-center space-x-1 p-2">
+                  <i class="fa-solid fa-trash"></i>
+                  <span>Sil</span>
+                </button>
+              </div>
+            </template>
+          </div>
+          <div class="pt-2">
+            <button type="button" @click="if (!singleObjectData.logos) singleObjectData.logos = []; singleObjectData.logos.push({ name: '' })" 
+              class="px-4 py-2.5 bg-slate-950 hover:bg-slate-900 border border-slate-800 text-gold-400 text-xs font-semibold rounded-xl flex items-center space-x-1.5 transition-all">
+              <i class="fa-solid fa-plus text-[9px]"></i>
+              <span>Yeni Yayın/Logo Ekle</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. SIKÇA SORULAN SORULAR (FAQ) -->
+      <div x-show="activeCatalog === 'faq'" class="space-y-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Küçük Etiket (Label)</label>
+            <input type="text" x-model="singleObjectData.label" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+          </div>
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Ana Başlık (Heading)</label>
+            <input type="text" x-model="singleObjectData.heading" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+          </div>
+        </div>
+
+        <div class="border-t border-slate-800/80 pt-5 space-y-4">
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-300 font-sans">Sorular & Cevaplar</h4>
+          <div class="space-y-6">
+            <template x-for="(item, index) in singleObjectData.items" :key="index">
+              <div class="bg-slate-950/40 border border-slate-800 p-5 rounded-2xl space-y-4 relative">
+                <div class="flex items-center justify-between border-b border-slate-800/60 pb-2">
+                  <span class="text-xs font-semibold text-gold-400" x-text="'Soru #' + (index + 1)"></span>
+                  <button type="button" @click="singleObjectData.items.splice(index, 1)" class="text-slate-500 hover:text-red-400 text-xs flex items-center space-x-1 transition-all">
+                    <i class="fa-solid fa-trash"></i>
+                    <span>Sil</span>
+                  </button>
+                </div>
+                <div class="space-y-1.5">
+                  <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Soru</label>
+                  <input type="text" x-model="item.question" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+                </div>
+                <div class="space-y-1.5">
+                  <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Cevap</label>
+                  <textarea x-model="item.answer" rows="4" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none"></textarea>
+                </div>
+            </template>
+          </div>
+          <div class="pt-2">
+            <button type="button" @click="if (!singleObjectData.items) singleObjectData.items = []; singleObjectData.items.push({ question: '', answer: '' })" 
+              class="px-4 py-2.5 bg-slate-950 hover:bg-slate-900 border border-slate-800 text-gold-400 text-xs font-semibold rounded-xl flex items-center space-x-1.5 transition-all">
+              <i class="fa-solid fa-plus text-[9px]"></i>
+              <span>Yeni Soru Ekle</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. VAKA ÇALIŞMASI (WORK) -->
+      <div x-show="activeCatalog === 'work'" class="space-y-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Sayfa Başlığı (SEO Title)</label>
+            <input type="text" x-model="singleObjectData.page_title" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+          </div>
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Meta Açıklaması (Description)</label>
+            <input type="text" x-model="singleObjectData.meta_description" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border-t border-slate-800/80 pt-5">
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Küçük Etiket (Örn: Case Study)</label>
+            <input type="text" x-model="singleObjectData.hero_label" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+          </div>
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Ana Slogan / Başlık</label>
+            <input type="text" x-model="singleObjectData.hero_heading" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+          </div>
+        </div>
+
+        <!-- Hero Giriş Açıklaması (Quill Rich Text Editor) -->
+        <div class="space-y-2 border-t border-slate-800/80 pt-5">
+          <div class="flex items-center justify-between">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400 font-sans">Hero Giriş Açıklaması</label>
+            <button type="button"
+              @click="openFullscreenEditor(
+                'Hero Giriş Açıklaması',
+                'Hero bölümü giriş açıklamasını düzenleyin.',
+                singleObjectData.hero_description,
+                (val) => { singleObjectData.hero_description = val; }
+              )"
+              class="px-2.5 py-1 bg-slate-950 border border-slate-800 text-gold-400 hover:text-gold-300 text-[10px] font-semibold rounded-lg flex items-center space-x-1.5 transition-all">
+              <i class="fa-solid fa-expand"></i>
+              <span>Tam Ekran Yap</span>
+            </button>
+          </div>
+          <div 
+            class="quill-wysiwyg-wrapper"
+            x-init="
+              const watch = $watch;
+              $nextTick(() => {
+                const container = $el.querySelector('.quill-editor');
+                const quill = new Quill(container, {
+                  theme: 'snow',
+                  modules: {
+                    toolbar: [
+                      ['bold', 'italic', 'underline'],
+                      ['link', 'clean']
+                    ]
+                  }
+                });
+                quill.root.innerHTML = marked.parse(singleObjectData.hero_description || '');
+                const turndownService = new TurndownService({ headingStyle: 'atx' });
+                quill.on('text-change', (delta, oldDelta, source) => {
+                  if (source === 'user') {
+                    singleObjectData.hero_description = turndownService.turndown(quill.root.innerHTML);
+                  }
+                });
+                watch('singleObjectData.hero_description', (newVal) => {
+                  const currentMarkdown = turndownService.turndown(quill.root.innerHTML);
+                  if (newVal !== currentMarkdown) {
+                    quill.root.innerHTML = marked.parse(newVal || '');
+                  }
+                });
+              });
+            "
+          >
+            <div class="quill-editor" style="height: 150px;"></div>
+          </div>
+        </div>
+
+        <!-- Anlatı Paragrafı 1 (Quill Rich Text Editor) -->
+        <div class="space-y-2 border-t border-slate-800/80 pt-5">
+          <div class="flex items-center justify-between">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400 font-sans">Anlatı Paragrafı 1 (Öne Çıkan Serif Yazı)</label>
+            <button type="button"
+              @click="openFullscreenEditor(
+                'Anlatı Paragrafı 1',
+                'Öne çıkan anlatı kısmını düzenleyin.',
+                singleObjectData.narrative_paragraph_1,
+                (val) => { singleObjectData.narrative_paragraph_1 = val; }
+              )"
+              class="px-2.5 py-1 bg-slate-950 border border-slate-800 text-gold-400 hover:text-gold-300 text-[10px] font-semibold rounded-lg flex items-center space-x-1.5 transition-all">
+              <i class="fa-solid fa-expand"></i>
+              <span>Tam Ekran Yap</span>
+            </button>
+          </div>
+          <div 
+            class="quill-wysiwyg-wrapper"
+            x-init="
+              const watch = $watch;
+              $nextTick(() => {
+                const container = $el.querySelector('.quill-editor');
+                const quill = new Quill(container, {
+                  theme: 'snow',
+                  modules: {
+                    toolbar: [
+                      ['bold', 'italic', 'underline'],
+                      ['link', 'clean']
+                    ]
+                  }
+                });
+                quill.root.innerHTML = marked.parse(singleObjectData.narrative_paragraph_1 || '');
+                const turndownService = new TurndownService({ headingStyle: 'atx' });
+                quill.on('text-change', (delta, oldDelta, source) => {
+                  if (source === 'user') {
+                    singleObjectData.narrative_paragraph_1 = turndownService.turndown(quill.root.innerHTML);
+                  }
+                });
+                watch('singleObjectData.narrative_paragraph_1', (newVal) => {
+                  const currentMarkdown = turndownService.turndown(quill.root.innerHTML);
+                  if (newVal !== currentMarkdown) {
+                    quill.root.innerHTML = marked.parse(newVal || '');
+                  }
+                });
+              });
+            "
+          >
+            <div class="quill-editor" style="height: 200px;"></div>
+          </div>
+        </div>
+
+        <!-- Anlatı Paragrafı 2 (Quill Rich Text Editor) -->
+        <div class="space-y-2 border-t border-slate-800/80 pt-5">
+          <div class="flex items-center justify-between">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400 font-sans">Anlatı Paragrafı 2</label>
+            <button type="button"
+              @click="openFullscreenEditor(
+                'Anlatı Paragrafı 2',
+                'İkinci anlatı paragrafını düzenleyin.',
+                singleObjectData.narrative_paragraph_2,
+                (val) => { singleObjectData.narrative_paragraph_2 = val; }
+              )"
+              class="px-2.5 py-1 bg-slate-950 border border-slate-800 text-gold-400 hover:text-gold-300 text-[10px] font-semibold rounded-lg flex items-center space-x-1.5 transition-all">
+              <i class="fa-solid fa-expand"></i>
+              <span>Tam Ekran Yap</span>
+            </button>
+          </div>
+          <div 
+            class="quill-wysiwyg-wrapper"
+            x-init="
+              const watch = $watch;
+              $nextTick(() => {
+                const container = $el.querySelector('.quill-editor');
+                const quill = new Quill(container, {
+                  theme: 'snow',
+                  modules: {
+                    toolbar: [
+                      ['bold', 'italic', 'underline'],
+                      ['link', 'clean']
+                    ]
+                  }
+                });
+                quill.root.innerHTML = marked.parse(singleObjectData.narrative_paragraph_2 || '');
+                const turndownService = new TurndownService({ headingStyle: 'atx' });
+                quill.on('text-change', (delta, oldDelta, source) => {
+                  if (source === 'user') {
+                    singleObjectData.narrative_paragraph_2 = turndownService.turndown(quill.root.innerHTML);
+                  }
+                });
+                watch('singleObjectData.narrative_paragraph_2', (newVal) => {
+                  const currentMarkdown = turndownService.turndown(quill.root.innerHTML);
+                  if (newVal !== currentMarkdown) {
+                    quill.root.innerHTML = marked.parse(newVal || '');
+                  }
+                });
+              });
+            "
+          >
+            <div class="quill-editor" style="height: 200px;"></div>
+          </div>
+        </div>
+
+        <!-- Sonuç Alıntısı (Outcome Quote) (Quill Rich Text Editor) -->
+        <div class="space-y-2 border-t border-slate-800/80 pt-5">
+          <div class="flex items-center justify-between">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400 font-sans">Sonuç Alıntısı (Outcome Quote)</label>
+            <button type="button"
+              @click="openFullscreenEditor(
+                'Sonuç Alıntısı',
+                'Sayfa sonundaki alıntı metnini düzenleyin.',
+                singleObjectData.outcome_quote,
+                (val) => { singleObjectData.outcome_quote = val; }
+              )"
+              class="px-2.5 py-1 bg-slate-950 border border-slate-800 text-gold-400 hover:text-gold-300 text-[10px] font-semibold rounded-lg flex items-center space-x-1.5 transition-all">
+              <i class="fa-solid fa-expand"></i>
+              <span>Tam Ekran Yap</span>
+            </button>
+          </div>
+          <div 
+            class="quill-wysiwyg-wrapper"
+            x-init="
+              const watch = $watch;
+              $nextTick(() => {
+                const container = $el.querySelector('.quill-editor');
+                const quill = new Quill(container, {
+                  theme: 'snow',
+                  modules: {
+                    toolbar: [
+                      ['bold', 'italic', 'underline'],
+                      ['link', 'clean']
+                    ]
+                  }
+                });
+                quill.root.innerHTML = marked.parse(singleObjectData.outcome_quote || '');
+                const turndownService = new TurndownService({ headingStyle: 'atx' });
+                quill.on('text-change', (delta, oldDelta, source) => {
+                  if (source === 'user') {
+                    singleObjectData.outcome_quote = turndownService.turndown(quill.root.innerHTML);
+                  }
+                });
+                watch('singleObjectData.outcome_quote', (newVal) => {
+                  const currentMarkdown = turndownService.turndown(quill.root.innerHTML);
+                  if (newVal !== currentMarkdown) {
+                    quill.root.innerHTML = marked.parse(newVal || '');
+                  }
+                });
+              });
+            "
+          >
+            <div class="quill-editor" style="height: 150px;"></div>
+          </div>
+        </div>
+
+        <!-- Görseller -->
+        <div class="space-y-4 border-t border-slate-800/80 pt-5">
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-300 font-sans">Sayfa Görselleri & Alt Yazıları</h4>
+
+          <!-- Image 1 -->
+          <div class="space-y-2 bg-slate-950/40 p-4 rounded-xl border border-slate-800/60">
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 font-sans">Görsel 1 (Sol Üst - 1/1 Kare)</label>
+            <div class="flex items-center space-x-3">
+              <input type="text" x-model="singleObjectData.image1" class="block flex-grow bg-slate-950/60 border border-slate-800 rounded-xl py-2 px-3 text-xs font-mono text-slate-300 focus:outline-none" readonly />
+              <button type="button" @click="openMediaLibraryModal(singleObjectData, 'image1')"
+                class="px-3 py-2 bg-slate-900 border border-slate-800 hover:border-gold-500/20 text-gold-400 text-xs font-semibold rounded-lg flex-shrink-0">
+                Görsel Seç
+              </button>
+            </div>
+            <div class="space-y-1">
+              <label class="text-[9px] font-semibold uppercase tracking-wider text-slate-500">Alt Yazı / Açıklama</label>
+              <input type="text" x-model="singleObjectData.image1_caption" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-1.5 px-3 text-xs text-slate-200 focus:outline-none" />
+            </div>
+            <div class="mt-2 w-32 h-20 bg-slate-950 rounded-lg overflow-hidden border border-slate-800">
+              <img :src="resolveImagePath(singleObjectData.image1)" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/200x100/1e293b/a88653?text=Yok'" />
+            </div>
+          </div>
+
+          <!-- Image 2 -->
+          <div class="space-y-2 bg-slate-950/40 p-4 rounded-xl border border-slate-800/60">
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 font-sans">Görsel 2 (Sağ Üst - 3/4 Dikey)</label>
+            <div class="flex items-center space-x-3">
+              <input type="text" x-model="singleObjectData.image2" class="block flex-grow bg-slate-950/60 border border-slate-800 rounded-xl py-2 px-3 text-xs font-mono text-slate-300 focus:outline-none" readonly />
+              <button type="button" @click="openMediaLibraryModal(singleObjectData, 'image2')"
+                class="px-3 py-2 bg-slate-900 border border-slate-800 hover:border-gold-500/20 text-gold-400 text-xs font-semibold rounded-lg flex-shrink-0">
+                Görsel Seç
+              </button>
+            </div>
+            <div class="space-y-1">
+              <label class="text-[9px] font-semibold uppercase tracking-wider text-slate-500">Alt Yazı / Açıklama</label>
+              <input type="text" x-model="singleObjectData.image2_caption" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-1.5 px-3 text-xs text-slate-200 focus:outline-none" />
+            </div>
+            <div class="mt-2 w-32 h-20 bg-slate-950 rounded-lg overflow-hidden border border-slate-800">
+              <img :src="resolveImagePath(singleObjectData.image2)" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/200x100/1e293b/a88653?text=Yok'" />
+            </div>
+          </div>
+
+          <!-- Image 3 -->
+          <div class="space-y-2 bg-slate-950/40 p-4 rounded-xl border border-slate-800/60">
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 font-sans">Görsel 3 (Sol Alt - 3/4 Dikey)</label>
+            <div class="flex items-center space-x-3">
+              <input type="text" x-model="singleObjectData.image3" class="block flex-grow bg-slate-950/60 border border-slate-800 rounded-xl py-2 px-3 text-xs font-mono text-slate-300 focus:outline-none" readonly />
+              <button type="button" @click="openMediaLibraryModal(singleObjectData, 'image3')"
+                class="px-3 py-2 bg-slate-900 border border-slate-800 hover:border-gold-500/20 text-gold-400 text-xs font-semibold rounded-lg flex-shrink-0">
+                Görsel Seç
+              </button>
+            </div>
+            <div class="space-y-1">
+              <label class="text-[9px] font-semibold uppercase tracking-wider text-slate-500">Alt Yazı / Açıklama</label>
+              <input type="text" x-model="singleObjectData.image3_caption" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-1.5 px-3 text-xs text-slate-200 focus:outline-none" />
+            </div>
+            <div class="mt-2 w-32 h-20 bg-slate-950 rounded-lg overflow-hidden border border-slate-800">
+              <img :src="resolveImagePath(singleObjectData.image3)" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/200x100/1e293b/a88653?text=Yok'" />
+            </div>
+          </div>
+
+          <!-- Image 4 -->
+          <div class="space-y-2 bg-slate-950/40 p-4 rounded-xl border border-slate-800/60">
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 font-sans">Görsel 4 (Sağ Alt - 1/1 Kare)</label>
+            <div class="flex items-center space-x-3">
+              <input type="text" x-model="singleObjectData.image4" class="block flex-grow bg-slate-950/60 border border-slate-800 rounded-xl py-2 px-3 text-xs font-mono text-slate-300 focus:outline-none" readonly />
+              <button type="button" @click="openMediaLibraryModal(singleObjectData, 'image4')"
+                class="px-3 py-2 bg-slate-900 border border-slate-800 hover:border-gold-500/20 text-gold-400 text-xs font-semibold rounded-lg flex-shrink-0">
+                Görsel Seç
+              </button>
+            </div>
+            <div class="space-y-1">
+              <label class="text-[9px] font-semibold uppercase tracking-wider text-slate-500">Alt Yazı / Açıklama</label>
+              <input type="text" x-model="singleObjectData.image4_caption" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-1.5 px-3 text-xs text-slate-200 focus:outline-none" />
+            </div>
+            <div class="mt-2 w-32 h-20 bg-slate-950 rounded-lg overflow-hidden border border-slate-800">
+              <img :src="resolveImagePath(singleObjectData.image4)" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/200x100/1e293b/a88653?text=Yok'" />
+            </div>
+          </div>
+
+          <!-- Image 5 -->
+          <div class="space-y-2 bg-slate-950/40 p-4 rounded-xl border border-slate-800/60">
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 font-sans">Görsel 5 (Alt Geniş - 16/9 Yatay)</label>
+            <div class="flex items-center space-x-3">
+              <input type="text" x-model="singleObjectData.image5" class="block flex-grow bg-slate-950/60 border border-slate-800 rounded-xl py-2 px-3 text-xs font-mono text-slate-300 focus:outline-none" readonly />
+              <button type="button" @click="openMediaLibraryModal(singleObjectData, 'image5')"
+                class="px-3 py-2 bg-slate-900 border border-slate-800 hover:border-gold-500/20 text-gold-400 text-xs font-semibold rounded-lg flex-shrink-0">
+                Görsel Seç
+              </button>
+            </div>
+            <div class="space-y-1">
+              <label class="text-[9px] font-semibold uppercase tracking-wider text-slate-500">Alt Yazı / Açıklama</label>
+              <input type="text" x-model="singleObjectData.image5_caption" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-1.5 px-3 text-xs text-slate-200 focus:outline-none" />
+            </div>
+            <div class="mt-2 w-32 h-20 bg-slate-950 rounded-lg overflow-hidden border border-slate-800">
+              <img :src="resolveImagePath(singleObjectData.image5)" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/200x100/1e293b/a88653?text=Yok'" />
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-1.5 border-t border-slate-800/80 pt-5">
+          <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Alt Bilgi Notu (Footer Note)</label>
+          <input type="text" x-model="singleObjectData.footer_note" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border-t border-slate-800/80 pt-5">
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">CTA Buton Metni (Örn: Request Consultation)</label>
+            <input type="text" x-model="singleObjectData.cta_text" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+          </div>
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">CTA Buton Linki (Örn: /index.html#contact)</label>
+            <input type="text" x-model="singleObjectData.cta_link" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. GİZLİLİK POLİTİKASI (PRIVACY) -->
+      <div x-show="activeCatalog === 'privacy'" class="space-y-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Sayfa Başlığı (SEO Title)</label>
+            <input type="text" x-model="singleObjectData.page_title" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+          </div>
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Sayfa İçi Başlık (Heading)</label>
+            <input type="text" x-model="singleObjectData.heading" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+          </div>
+        </div>
+
+        <div class="space-y-1.5">
+          <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Son Güncelleme Tarihi (Last Updated)</label>
+          <input type="text" x-model="singleObjectData.last_updated" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+        </div>
+
+        <!-- Body content (Quill Rich Text Editor) -->
+        <div class="space-y-2 border-t border-slate-800/80 pt-5">
+          <div class="flex items-center justify-between">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400 font-sans">İçerik (Gizlilik Politikası Metni)</label>
+            <button type="button"
+              @click="openFullscreenEditor(
+                singleObjectData.page_title || 'Gizlilik Politikası',
+                'Gizlilik politikası içeriğini tam ekran modunda düzenleyin.',
+                singleObjectData.body,
+                (val) => { singleObjectData.body = val; }
+              )"
+              class="px-2.5 py-1 bg-slate-950 border border-slate-800 text-gold-400 hover:text-gold-300 text-[10px] font-semibold rounded-lg flex items-center space-x-1.5 transition-all">
+              <i class="fa-solid fa-expand"></i>
+              <span>Tam Ekran Yap</span>
+            </button>
+          </div>
+          <div 
+            class="quill-wysiwyg-wrapper"
+            x-init="
+              const watch = $watch;
+              $nextTick(() => {
+                const container = $el.querySelector('.quill-editor');
+                const quill = new Quill(container, {
+                  theme: 'snow',
+                  modules: {
+                    toolbar: [
+                      ['bold', 'italic', 'underline'],
+                      [{ 'header': [1, 2, 3, false] }],
+                      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                      ['link', 'image', 'clean']
+                    ]
+                  }
+                });
+                
+                quill.getModule('toolbar').addHandler('image', () => {
+                  openMediaLibraryModal('quill', quill);
+                });
+                
+                quill.root.innerHTML = marked.parse(singleObjectData.body || '');
+                const turndownService = new TurndownService({ headingStyle: 'atx' });
+                quill.on('text-change', (delta, oldDelta, source) => {
+                  if (source === 'user') {
+                    singleObjectData.body = turndownService.turndown(quill.root.innerHTML);
+                  }
+                });
+                watch('singleObjectData.body', (newVal) => {
+                  const currentMarkdown = turndownService.turndown(quill.root.innerHTML);
+                  if (newVal !== currentMarkdown) {
+                    quill.root.innerHTML = marked.parse(newVal || '');
+                  }
+                });
+              });
+            "
+          >
+            <div class="quill-editor" style="height: 350px;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11. KULLANIM KOŞULLARI (TERMS) -->
+      <div x-show="activeCatalog === 'terms'" class="space-y-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Sayfa Başlığı (SEO Title)</label>
+            <input type="text" x-model="singleObjectData.page_title" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+          </div>
+          <div class="space-y-1.5">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Sayfa İçi Başlık (Heading)</label>
+            <input type="text" x-model="singleObjectData.heading" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+          </div>
+        </div>
+
+        <div class="space-y-1.5">
+          <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Son Güncelleme Tarihi (Last Updated)</label>
+          <input type="text" x-model="singleObjectData.last_updated" class="block w-full bg-slate-950/60 border border-slate-800 rounded-xl py-3 px-4 text-xs text-slate-200 focus:outline-none" />
+        </div>
+
+        <!-- Body content (Quill Rich Text Editor) -->
+        <div class="space-y-2 border-t border-slate-800/80 pt-5">
+          <div class="flex items-center justify-between">
+            <label class="text-[10px] font-semibold uppercase tracking-wider text-slate-400 font-sans">İçerik (Kullanım Koşulları Metni)</label>
+            <button type="button"
+              @click="openFullscreenEditor(
+                singleObjectData.page_title || 'Kullanım Koşulları',
+                'Kullanım koşulları içeriğini tam ekran modunda düzenleyin.',
+                singleObjectData.body,
+                (val) => { singleObjectData.body = val; }
+              )"
+              class="px-2.5 py-1 bg-slate-950 border border-slate-800 text-gold-400 hover:text-gold-300 text-[10px] font-semibold rounded-lg flex items-center space-x-1.5 transition-all">
+              <i class="fa-solid fa-expand"></i>
+              <span>Tam Ekran Yap</span>
+            </button>
+          </div>
+          <div 
+            class="quill-wysiwyg-wrapper"
+            x-init="
+              const watch = $watch;
+              $nextTick(() => {
+                const container = $el.querySelector('.quill-editor');
+                const quill = new Quill(container, {
+                  theme: 'snow',
+                  modules: {
+                    toolbar: [
+                      ['bold', 'italic', 'underline'],
+                      [{ 'header': [1, 2, 3, false] }],
+                      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                      ['link', 'image', 'clean']
+                    ]
+                  }
+                });
+                
+                quill.getModule('toolbar').addHandler('image', () => {
+                  openMediaLibraryModal('quill', quill);
+                });
+                
+                quill.root.innerHTML = marked.parse(singleObjectData.body || '');
+                const turndownService = new TurndownService({ headingStyle: 'atx' });
+                quill.on('text-change', (delta, oldDelta, source) => {
+                  if (source === 'user') {
+                    singleObjectData.body = turndownService.turndown(quill.root.innerHTML);
+                  }
+                });
+                watch('singleObjectData.body', (newVal) => {
+                  const currentMarkdown = turndownService.turndown(quill.root.innerHTML);
+                  if (newVal !== currentMarkdown) {
+                    quill.root.innerHTML = marked.parse(newVal || '');
+                  }
+                });
+              });
+            "
+          >
+            <div class="quill-editor" style="height: 350px;"></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>

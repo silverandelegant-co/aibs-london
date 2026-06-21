@@ -1,0 +1,160 @@
+---
+layout: base.njk
+title: "{{ work.page_title | default('From Zero to London Fashion Week — AIBS London Case Study') }}"
+description: "{{ work.meta_description | default('How a proprietary visual system supported Silver & Elegant’s journey from a home studio to a runway partnership at London Fashion Week in thirteen months.') }}"
+permalink: "/work/index.html"
+---
+
+<style>
+.nav-logo {
+  color: var(--c-ink);
+}
+.nav-item a {
+  color: var(--c-ink);
+}
+.nav-item a:hover {
+  color: var(--c-muted);
+}
+</style>
+
+<div class="page-hero" id="work-hero" style="background-color: var(--c-bg); border-bottom: 1px solid var(--c-border); padding: 10rem 0 5rem; text-align: center;">
+  <div class="container" style="max-width: 800px; margin: 0 auto; padding: 0 var(--space-md);">
+    <span class="label reveal" style="font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--c-muted); display: inline-block; margin-bottom: 1rem;">{{ work.hero_label | default("Case Study") }}</span>
+    <h1 class="reveal reveal-delay-1" style="font-family: var(--font-serif); font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 300; line-height: 1.2; color: var(--c-ink); margin-bottom: 1.5rem;">{{ work.hero_heading | default("From Zero to London Fashion Week") }}</h1>
+    <div class="reveal reveal-delay-2" style="font-family: var(--font-sans); font-size: 0.95rem; color: var(--c-muted); max-width: 60ch; margin: 0 auto; line-height: 1.6;">
+      {{ work.hero_description | markdown | safe }}
+    </div>
+  </div>
+</div>
+
+<section class="section case-study-section" style="padding: 6rem 0;">
+  <div class="container" style="max-width: 900px; margin: 0 auto;">
+    
+    <!-- Narrative Block -->
+    <div class="case-study-narrative reveal" style="margin-bottom: 5rem;">
+      <div style="font-family: var(--font-serif); font-size: clamp(1.15rem, 2.5vw, 1.4rem); line-height: 1.8; color: var(--c-ink); margin-bottom: 1.8rem; font-weight: 300;">
+        {{ work.narrative_paragraph_1 | markdown | safe }}
+      </div>
+      <div style="font-family: var(--font-sans); font-size: 1rem; line-height: 1.7; color: var(--c-muted); margin-top: 1.8rem;">
+        {{ work.narrative_paragraph_2 | markdown | safe }}
+      </div>
+    </div>
+
+    <!-- Image Grid (Asymmetrical Grid) -->
+    <div class="case-study-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem; margin-bottom: 6rem;">
+      
+      <div class="grid-item reveal" style="display: flex; flex-direction: column; gap: 0.8rem;">
+        <div class="grid-image-wrapper" style="overflow: hidden; border: 1px solid var(--c-border); background: var(--c-cream); aspect-ratio: 1/1; cursor: zoom-in;" onclick="openWorkLightbox('{{ work.image1 | default('/assets/work/work1.jpg') }}', 'Editorial campaign imagery')">
+          <img src="{{ work.image1 | default('/assets/work/work1.jpg') }}" alt="{{ work.image1_caption | default('Editorial campaign imagery') }}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s var(--ease);" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+        </div>
+        <span class="image-caption" style="font-family: var(--font-sans); font-size: 0.72rem; color: var(--c-muted); line-height: 1.4;">{{ work.image1_caption | default('Editorial campaign imagery, generated using the Physical Fidelity Protocol.') }}</span>
+      </div>
+
+      <div class="grid-item reveal reveal-delay-1" style="display: flex; flex-direction: column; gap: 0.8rem; margin-top: 3rem;">
+        <div class="grid-image-wrapper" style="overflow: hidden; border: 1px solid var(--c-border); background: var(--c-cream); aspect-ratio: 3/4; cursor: zoom-in;" onclick="openWorkLightbox('{{ work.image2 | default('/assets/work/work2.jpg') }}', 'Sculptural detail showcase')">
+          <img src="{{ work.image2 | default('/assets/work/work2.jpg') }}" alt="{{ work.image2_caption | default('Sculptural detail showcase') }}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s var(--ease);" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+        </div>
+        <span class="image-caption" style="font-family: var(--font-sans); font-size: 0.72rem; color: var(--c-muted); line-height: 1.4;">{{ work.image2_caption | default('Sculptural detail showcase, mapping 99% geometric fidelity between physical and digital.') }}</span>
+      </div>
+
+      <div class="grid-item reveal" style="display: flex; flex-direction: column; gap: 0.8rem;">
+        <div class="grid-image-wrapper" style="overflow: hidden; border: 1px solid var(--c-border); background: var(--c-cream); aspect-ratio: 3/4; cursor: zoom-in;" onclick="openWorkLightbox('{{ work.image3 | default('/assets/work/work4.jpg') }}', 'Campaign visual for Pegasus collection')">
+          <img src="{{ work.image3 | default('/assets/work/work4.jpg') }}" alt="{{ work.image3_caption | default('Campaign visual for Pegasus collection') }}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s var(--ease);" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+        </div>
+        <span class="image-caption" style="font-family: var(--font-sans); font-size: 0.72rem; color: var(--c-muted); line-height: 1.4;">{{ work.image3_caption | default('Campaign visual presenting the brutalist architecture of the Pegasus collection.') }}</span>
+      </div>
+
+      <div class="grid-item reveal reveal-delay-1" style="display: flex; flex-direction: column; gap: 0.8rem; margin-top: -3rem;">
+        <div class="grid-image-wrapper" style="overflow: hidden; border: 1px solid var(--c-border); background: var(--c-cream); aspect-ratio: 1/1; cursor: zoom-in;" onclick="openWorkLightbox('{{ work.image4 | default('/assets/work/work3.jpg') }}', 'London Fashion Week Runway')">
+          <img src="{{ work.image4 | default('/assets/work/work3.jpg') }}" alt="{{ work.image4_caption | default('London Fashion Week Runway') }}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s var(--ease);" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+        </div>
+        <span class="image-caption" style="font-family: var(--font-sans); font-size: 0.72rem; color: var(--c-muted); line-height: 1.4;">{{ work.image4_caption | default('Candid runway capture from the Paul Costelloe Autumn/Winter 2026 opening show at London Fashion Week.') }}</span>
+      </div>
+
+      <div class="grid-item reveal" style="display: flex; flex-direction: column; gap: 0.8rem; grid-column: span 2; max-width: 600px; margin: 2rem auto 0;">
+        <div class="grid-image-wrapper" style="overflow: hidden; border: 1px solid var(--c-border); background: var(--c-cream); aspect-ratio: 16/9; cursor: zoom-in;" onclick="openWorkLightbox('{{ work.image5 | default('/assets/work/work5.jpg') }}', 'LFW runway showcase')">
+          <img src="{{ work.image5 | default('/assets/work/work5.jpg') }}" alt="{{ work.image5_caption | default('LFW runway showcase') }}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s var(--ease);" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+        </div>
+        <span class="image-caption" style="font-family: var(--font-sans); font-size: 0.72rem; color: var(--c-muted); line-height: 1.4; text-align: center;">{{ work.image5_caption | default('Model showcase of structural jewellery on the LFW runway, London.') }}</span>
+      </div>
+
+    </div>
+
+    <!-- Outcome Statement Block -->
+    <div class="case-study-outcome reveal" style="border-top: 1px solid var(--c-border); border-bottom: 1px solid var(--c-border); padding: 4rem 2rem; text-align: center; margin-bottom: 5rem;">
+      <div style="font-family: var(--font-serif); font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 300; line-height: 1.4; color: var(--c-ink);">
+        "{{ work.outcome_quote | markdown | safe }}"
+      </div>
+    </div>
+
+    <!-- Methodology Note -->
+    <div class="case-study-footer reveal" style="text-align: center;">
+      <p style="font-family: var(--font-sans); font-size: 0.75rem; letter-spacing: 0.05em; color: var(--c-muted); font-style: italic;">
+        {{ work.footer_note | default("All imagery on this page was produced using the same methodology offered to AI Business Studio London clients.") }}
+      </p>
+      <a href="{{ work.cta_link | default('/index.html#contact') }}" class="btn btn-dark" style="margin-top: 2.5rem; display: inline-flex; align-items: center; gap: 0.5rem;">
+        {{ work.cta_text | default("Request Consultation") }}
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Lightbox Modal for Work page -->
+<div id="work-lightbox" class="lightbox-modal" onclick="closeWorkLightbox()" style="display: none; position: fixed; z-index: 2000; inset: 0; background: rgba(0,0,0,0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; cursor: zoom-out;">
+  <button class="lightbox-close" aria-label="Close lightbox" onclick="closeWorkLightbox()" style="position: absolute; top: 2rem; right: 2rem; background: none; border: none; color: rgba(255,255,255,0.7); font-size: 2.5rem; cursor: pointer; transition: color 0.2s;">&times;</button>
+  <div class="lightbox-content" onclick="event.stopPropagation()" style="max-width: 90%; max-height: 85vh;">
+    <img id="work-lightbox-img" src="" alt="Enlarged view" style="max-width: 100%; max-height: 85vh; object-fit: contain; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+  </div>
+</div>
+
+<script>
+  function openWorkLightbox(src, alt) {
+    const lightbox = document.getElementById('work-lightbox');
+    const img = document.getElementById('work-lightbox-img');
+    if (lightbox && img) {
+      img.src = src;
+      img.alt = alt;
+      lightbox.style.display = 'flex';
+      // Force reflow
+      lightbox.offsetHeight;
+      lightbox.style.opacity = '1';
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeWorkLightbox() {
+    const lightbox = document.getElementById('work-lightbox');
+    if (lightbox) {
+      lightbox.style.opacity = '0';
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        if (lightbox.style.opacity === '0') {
+          lightbox.style.display = 'none';
+        }
+      }, 300);
+    }
+  }
+
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeWorkLightbox();
+    }
+  });
+</script>
+
+<style>
+  @media (max-width: 768px) {
+    .case-study-grid {
+      grid-template-columns: 1fr !important;
+      gap: 2rem !important;
+    }
+    .grid-item {
+      margin-top: 0 !important;
+    }
+    .grid-item.reveal {
+      grid-column: span 1 !important;
+    }
+  }
+</style>
