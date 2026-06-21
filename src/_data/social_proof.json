@@ -2,8 +2,8 @@
   "label": "Recognition",
   "heading": "As Featured In / Recognised By",
   "logos": [
-    { "name": "City A.M." },
-    { "name": "The Jewellery Editor" },
-    { "name": "Borehamwood Times" }
+    {
+      "name": "Borehamwood Times"
+    }
   ]
 }
