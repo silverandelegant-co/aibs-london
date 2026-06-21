@@ -1,26 +1,26 @@
 {
-  "label": "Methodology",
+  "label": " OUR PROCESS",
   "heading": "How We Work",
   "steps": [
     {
       "num": "01",
       "title": "Initial Conversation",
-      "description": "Following your request invitation submission, we discuss your goals and brand vision."
+      "description": "After you submit a request, we schedule a short, no-pressure conversation. No sales pitch — just an honest discussion to see if there's a genuine fit, for both sides."
     },
     {
       "num": "02",
-      "title": "Discovery & Framework",
-      "description": "We outline a bespoke strategic roadmap and design guidelines for your visual pipeline."
+      "title": " Discovery & Framework Design",
+      "description": "We study your brand, your existing assets, and your goals. From there, we design a framework specific to you — never a generic template borrowed from another client.\n"
     },
     {
       "num": "03",
-      "title": "Implementation",
-      "description": "We build your custom AI visual systems and set up operational workflows."
+      "title": " Implementation",
+      "description": "We build and test the system together, refining as we go. You see real output early, not just a plan on paper."
     },
     {
       "num": "04",
-      "title": "Handover & Support",
-      "description": "We hand over control, ensuring your team has the skills and systems to run autonomously."
+      "title": "Handover & Ongoing Support",
+      "description": "Once the framework is working, we hand it over so you can run it independently. Ongoing support is available if you want it — never required."
     }
   ]
 }
