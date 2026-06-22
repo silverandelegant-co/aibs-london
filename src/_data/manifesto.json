@@ -1,7 +1,8 @@
 {
-  "line1": "Most businesses don't have an AI problem. They have a clarity problem.",
-  "line2": "They know what they want to achieve. They don't know how to make AI serve that — without losing what makes them distinctive.",
-  "line3": "We don't arrive with tools and templates. We arrive with questions — then build the framework around your answers.",
+  "line1": "AI does not replace the work. It removes the excuses not to do it properly.",
+  "line2": "We don't build templates. We build systems that think the way your brand thinks.",
+  "line3": "If you've opened ten AI tools and closed all ten, you're not behind. You're just missing the framework, not the tools.",
   "line4": "If you've opened ten AI tools and closed all ten without using any of them, you're not behind. You're just missing the framework, not the tools.",
-  "image": "/assets/banner.webp"
+  "image": "/assets/banner.webp",
+  "hero_description": ""
 }
