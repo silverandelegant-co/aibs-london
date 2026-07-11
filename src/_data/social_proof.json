@@ -1,15 +1,21 @@
 {
-  "label": "RECOGNITION",
-  "heading": "As Featured In",
+  "label": "Featured & Recognized",
+  "heading": "Validated by Industry Leaders",
   "logos": [
     {
-      "name": "Royal Society of Arts (RSA)"
+      "name": "Paul Costelloe -   Official Jewellery Partner, London Fashion Week AW26"
     },
     {
-      "name": "KALTBLUT Magazine"
+      "name": "Not Just A Label -   Featured Designer (NJAL)"
     },
     {
-      "name": "FLANELLE Magazine"
+      "name": "Wolf & Badger  - Selective Retail Partner"
+    },
+    {
+      "name": "SME Business Awards  Finalist, Business Innovation Category 2026"
+    },
+    {
+      "name": "Royal Society of Arts- Founded by FRSA Fellow Esen Tunalı Sarı FRSA"
     }
   ]
 }
