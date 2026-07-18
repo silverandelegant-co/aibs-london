@@ -1,17 +1,17 @@
 {
   "services": [
     {
-      "title": "Strategic AI Integration",
-      "description": "You don't need more AI tools. You need to know which ones actually serve your business — and how to use them without losing your voice."
-    },
-    {
       "title": "Visual Systems & Brand Identity",
-      "description": "Editorial-quality AI-generated imagery for brands that cannot compromise on aesthetics. Product visuals, campaign imagery and catalogue production — without traditional photoshoot costs. Our proprietary methodology, the Physical Fidelity Protocol, achieves a 99% geometric and material match between physical products and their AI-generated representations.",
-      "tooltip": "measured by comparing key dimensions and material properties between the physical piece and its AI-generated representation."
+      "description": "Editorial-quality AI-generated imagery for brands that cannot compromise on aesthetics. Product visuals, campaign imagery and catalogue production — without traditional photoshoot costs. Built on the Physical Fidelity Protocol™: every published visual is checked directly against the physical piece it represents. The image the customer sees is the object they receive."
     },
     {
       "title": "Brand Intelligence",
-      "description": "Your brand has a point of view. AI should amplify it, not dilute it. We build the narrative framework, visual language and operational structure that keeps your brand distinctively yours."
+      "description": "Your brand has a point of view. We build the narrative framework, visual language and operational structure that keeps it distinctively yours — before any tool is allowed to touch it.",
+      "tooltip": "measured by comparing key dimensions and material properties between the physical piece and its AI-generated representation."
+    },
+    {
+      "title": "Strategic AI Integration",
+      "description": "You don't need more AI tools. You need to know which ones actually serve your business — and how to use them without losing your voice. We offer this primarily to brands we already work with: it's the support layer behind the systems above, not a standalone product."
     }
   ]
 }
