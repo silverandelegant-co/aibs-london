@@ -1,16 +1,16 @@
 {
   "cards": [
     {
-      "title": "The Laboratory",
-      "text": "AI Business Studio London was not built on client work. It was built on SILVER & ELEGANT — our own jewellery brand, run as a live laboratory. Every framework we bring to a client was first tested there, in constraint, precision and permanence. Pieces are designed by algorithm or by hand — some by both — and finished by a single master silversmith."
+      "title": "The Laboratory.",
+      "text": "AI Business Studio London was not built on theory. It was engineered inside SILVER & ELEGANT—a luxury brand operating as our live laboratory. Every framework we deploy is first tested against strict operational constraints."
     },
     {
       "title": "Proven in Public",
-      "text": "In its inaugural year, the laboratory produced an official jewellery partnership with Paul Costelloe at London Fashion Week AW26. Ten pieces — the majority of them rings — were worn on the runway, with the show's stylist working directly from the studio's designs. Costelloe's team initiated the partnership after seeing the collection."
+      "text": "The methodology was validated at London Fashion Week AW26 through an official runway partnership. It successfully translated digital frameworks into physical execution."
     },
     {
       "title": "The Physical Fidelity Protocol",
-      "text": "The methodology behind it. The protocol governs the chain from generated visual to finished object, so the image a customer sees is the object they receive. Before anything is published or delivered, each finished piece is checked directly against the source render it was designed from. We don't publish a percentage. We publish the work — see it for yourself."
+      "text": "This proprietary protocol governs the exact transition from generated visual to physical object. It ensures absolute structural accuracy between the initial AI framework and the final execution."
     }
   ]
 }
