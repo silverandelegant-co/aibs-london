@@ -2,16 +2,16 @@
   "services": [
     {
       "title": "Visual Systems & Brand Identity",
-      "description": "Editorial-quality AI-generated imagery for brands that cannot compromise on aesthetics. Product visuals, campaign imagery and catalogue production — without traditional photoshoot costs. Built on the Physical Fidelity Protocol™: every published visual is checked directly against the physical piece it represents. The image the customer sees is the object they receive."
+      "description": "Editorial-grade visual systems. We design bespoke product and campaign imagery governed by the Physical Fidelity Protocol, ensuring strict structural alignment between the digital concept and physical execution."
     },
     {
       "title": "Brand Intelligence",
-      "description": "Your brand has a point of view. We build the narrative framework, visual language and operational structure that keeps it distinctively yours — before any tool is allowed to touch it.",
+      "description": "We construct the foundational narrative and operational architecture. This strict framework dictates AI interaction, ensuring your core identity leads the technology, not the reverse.",
       "tooltip": "measured by comparing key dimensions and material properties between the physical piece and its AI-generated representation."
     },
     {
       "title": "Strategic AI Integration",
-      "description": "You don't need more AI tools. You need to know which ones actually serve your business — and how to use them without losing your voice. We offer this primarily to brands we already work with: it's the support layer behind the systems above, not a standalone product."
+      "description": "We design bespoke AI deployment frameworks aligned precisely with your operational logic. This is an exclusive integration layer for our existing partners, ensuring technology serves the brand without compromising its voice."
     }
   ]
 }
