@@ -1,26 +1,16 @@
 {
-  "label": " OUR PROCESS",
-  "heading": "How We Work",
+  "label": "Engagement Protocol",
+  "heading": "The Process",
   "steps": [
     {
       "num": "01",
-      "title": "Initial Conversation",
-      "description": "After you submit a request, we schedule a short, no-pressure conversation. No sales pitch — just an honest discussion to see if there's a genuine fit, for both sides."
+      "title": "Application & Alignment",
+      "description": "We evaluate your application to determine mutual alignment. We only proceed if our strict methodology matches your operational requirements."
     },
     {
       "num": "02",
-      "title": " Discovery & Framework Design",
-      "description": "We study your brand, your existing assets, and your goals. From there, we design a framework specific to you — never a generic template borrowed from another client.\n"
-    },
-    {
-      "num": "03",
-      "title": " Implementation",
-      "description": "We build and test the system together, refining as we go. You see real output early, not just a plan on paper."
-    },
-    {
-      "num": "04",
-      "title": "Handover & Ongoing Support",
-      "description": "Once the framework is working, we hand it over so you can run it independently. Ongoing support is available if you want it — never required."
+      "title": "Framework Engineering",
+      "description": "We audit your brand's logic and construct a custom architectural system. Every framework is built from the ground up—we do not recycle templates."
     }
   ]
 }
