@@ -32,11 +32,11 @@
       <a href="/index.html#hero" class="nav-logo">AI Business Studio</a>
       <div class="nav-overlay" id="nav-overlay"></div>
       <ul class="nav-links" id="nav-links">
-        <li class="nav-item"><a href="/index.html#manifesto">Manifesto</a></li>
-        <li class="nav-item"><a href="/index.html#trust">Blueprint &amp; Governance</a></li>
-        <li class="nav-item"><a href="/index.html#approach">Services</a></li>
-        <li class="nav-item"><a href="/work/index.html">Work</a></li>
-        <li class="nav-item"><a href="/index.html#contact">Contact</a></li>
+        <li class="nav-item"><a href="/index.html#manifesto">{{ settings.menu_manifesto | default('Manifesto') }}</a></li>
+        <li class="nav-item"><a href="/index.html#trust">{{ settings.menu_trust | default('Blueprint & Governance') }}</a></li>
+        <li class="nav-item"><a href="/index.html#approach">{{ settings.menu_services | default('Services') }}</a></li>
+        <li class="nav-item"><a href="/work/index.html">{{ settings.menu_work | default('Work') }}</a></li>
+        <li class="nav-item"><a href="/index.html#contact">{{ settings.menu_contact | default('Contact') }}</a></li>
       </ul>
       <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -51,7 +51,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <span class="footer-logo">AI Business Studio</span>
-        <p>Where Human Thinking Meets Machine Precision.</p>
+        <p>{{ settings.footer_tagline | default('Where Human Thinking Meets Machine Precision.') }}</p>
       </div>
       <div class="footer-links">
         {% if settings.linkedin %}
@@ -64,13 +64,13 @@
           LinkedIn
         </a>
         {% endif %}
-        <a href="https://silverandelegant.co" class="footer-link" target="_blank" rel="noopener" id="footer-sister-brand">Sister brand: SILVER &amp; ELEGANT</a>
+        <a href="https://silverandelegant.co" class="footer-link" target="_blank" rel="noopener" id="footer-sister-brand">{{ settings.sister_brand_label | default('Sister brand: SILVER & ELEGANT') }}</a>
         <a href="/privacy/index.html" class="footer-link" id="footer-privacy">Privacy Policy</a>
         <a href="/terms/index.html" class="footer-link" id="footer-terms">Terms of Service</a>
       </div>
     </div>
     <div class="footer-bottom">
-      &copy; 2026 AI Business Studio London. All rights reserved.
+      {{ settings.copyright_text | default('&copy; 2026 AI Business Studio London. All rights reserved.') | safe }}
     </div>
   </footer>
 

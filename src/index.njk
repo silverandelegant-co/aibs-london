@@ -192,7 +192,7 @@ permalink: "/index.html"
       <h2 class="contact-invitation" style="margin-bottom: 1.5rem;">{{ settings.contact_title | default("By Invitation Only.") }}</h2>
       
       <p class="contact-timeline" style="max-width: 600px; margin: 0 auto 2.5rem; color: var(--c-muted); font-size: 0.92rem; font-family: var(--font-sans);">
-        We respond personally to every enquiry within 3 business days.
+        {{ settings.contact_subtitle | default("We respond personally to every enquiry within 3 business days.") }}
       </p>
       
       <!-- Invitation Request Form -->
@@ -204,22 +204,22 @@ permalink: "/index.html"
 
         <div class="form-group-row">
           <div class="form-group">
-            <label class="form-label" for="invite-name">Full Name</label>
+            <label class="form-label" for="invite-name">{{ settings.form_label_name | default("Full Name") }}</label>
             <input class="form-input" type="text" id="invite-name" name="name" required autocomplete="name">
           </div>
           <div class="form-group">
-            <label class="form-label" for="invite-email">Business Email</label>
+            <label class="form-label" for="invite-email">{{ settings.form_label_email | default("Business Email") }}</label>
             <input class="form-input" type="email" id="invite-email" name="email" required autocomplete="email">
           </div>
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="invite-org">Organization</label>
+          <label class="form-label" for="invite-org">{{ settings.form_label_org | default("Organization") }}</label>
           <input class="form-input" type="text" id="invite-org" name="company" placeholder="e.g. Acme Corp">
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="invite-details">Brief Project Context</label>
+          <label class="form-label" for="invite-details">{{ settings.form_label_context | default("Brief Project Context") }}</label>
           <textarea class="form-textarea" id="invite-details" name="message" rows="4" required placeholder="Describe your business challenge or context..."></textarea>
         </div>
 
@@ -235,8 +235,8 @@ permalink: "/index.html"
         </div>
 
         <div class="form-actions-notes" style="margin-top: 2rem; font-size: 0.82rem; color: var(--c-muted); text-align: center; line-height: 1.6; font-family: var(--font-sans);">
-          <p>No sales pitch. Just a conversation to see if there's a genuine fit — for either of us.</p>
-          <p style="margin-top: 0.4rem;">Even if you're not ready to start, feel free to reach out with a question.</p>
+          {% if settings.contact_note_1 %}<p>{{ settings.contact_note_1 }}</p>{% endif %}
+          {% if settings.contact_note_2 %}<p style="margin-top: 0.4rem;">{{ settings.contact_note_2 }}</p>{% endif %}
         </div>
       </form>
 
