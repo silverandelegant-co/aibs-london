@@ -8,8 +8,9 @@
   /* 1. Nav: scroll behaviour */
   const nav = $('#nav');
   if (nav) {
+    const hasHero = !!$('.hero');
     const onScroll = () => {
-      nav.classList.toggle('scrolled', window.scrollY > 60);
+      nav.classList.toggle('scrolled', !hasHero || window.scrollY > 60);
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
