@@ -5,12 +5,12 @@
     {
       "num": "01",
       "title": "Application & Alignment",
-      "description": "We evaluate your application to determine mutual alignment. We only proceed if our strict methodology matches your operational requirements."
+      "description": "We review applications to confirm mutual alignment before proceeding."
     },
     {
       "num": "02",
-      "title": "Framework Engineering",
-      "description": "We audit your brand's logic and construct a custom architectural system. Every framework is built from the ground up—we do not recycle templates."
+      "title": "Framework Design",
+      "description": "We audit your brand logic and build a custom framework from scratch. No templates."
     }
   ]
 }
